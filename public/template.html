@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invoice</title>
+    <style>
+      /* Define your styles for the invoice here */
+      .flex {
+        display: flex;
+        justify-content: center;
+      }
+
+      .border1 {
+        border: 2px solid black;
+      }
+
+      div {
+        text-align: center;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        height: 100vh;
+        overflow: hidden;
+        /* max-width: 1vw; */
+        margin: 0 auto;
+        padding: 28px;
+      }
+
+      h2 {
+        color: #333;
+      }
+      .data {
+        margin-top: 20px;
+      }
+
+      .font12 {
+        font-size: 11px;
+      }
+      .font8 {
+        font-size: 10px;
+      }
+
+      .font14 {
+        font-size: 14px;
+      }
+      .font16{
+        font-size: 16px;
+      }
+      h1 {
+        text-align: center;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .left {
+        width: 50%;
+        height: 185px;
+      }
+      .left div {
+        text-align: left;
+        font-size: 13px;
+        padding-left: 2px;
+      }
+      .right {
+        width: 50%;
+        height: 185px;
+        padding: 0;
+      }
+      .height43 {
+        height: 43.75px;
+        font-size: 13px;
+        text-align: left;
+      }
+      .right32,
+      .right31,
+      .right41,
+      .right42 {
+        width: 50%;
+      }
+      .bottom-left {
+        width: 60%;
+      }
+    </style>
+    <style>
+      .bt {
+        border-top: 2px solid #000;
+      }
+      .bl {
+        border-left: 2px solid #000;
+      }
+      .br {
+        border-right: 2px solid black;
+      }
+      .bb {
+        border-bottom: 2px solid black;
+      }
+      th{
+        font-weight: 500;
+      }
+      .bottom-right {
+        padding: 0;
+      }
+      .c2 {
+        width: 50px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bt bl br bb p-1">
+      <div class="flex">
+        <div class="font14">Tax Invoice</div>
+      </div>
+      <div class="flex font16">
+        <div><b>SAHYADRI DEVELOPMENT AND CONSTRUCTION LLP</b></div>
+      </div>
+    </div>
+    <div class="bl br bb p-1">
+      <div class="flex">
+        <div class="font14">
+          Flat No.803, Building B, Madhuvanti, Sinhagad Road, Nandedcity, Pune
+          411041
+        </div>
+      </div>
+      <div class="flex">
+        <div><b class="font14">Mobile No: 9923198949,9371234650</b></div>
+      </div>
+    </div>
+    <div class="bl br p-1">
+      <div class="flex">
+        <div>
+          <b class="font14"
+            >GST NO-27AEXFS1946L1Z3 PAN NO:-AEXFS1946L1 STATE-Maharashtra State
+            Code-:27</b
+          >
+        </div>
+      </div>
+    </div>
+    <table>
+      <tr>
+        <td class="left bl bt">
+          <div style="font-size: 14px; line-height: 24px;  vertical-align: top;">
+            To, <br />
+            <strong>{{ customerName }}</strong> <br />
+            {{ customerAddress }} <br />
+            GSTIN : {{ customerGSTIN }} <br />
+            State : {{ customerState }} <br />
+            HSN Description : {{ customerHSN }} <br />
+            PAN No : {{ customerPAN }}
+          </div>
+        </td>
+        <td class="right bt bl br">
+          <div class="height43 bb" style="padding: 10px 0px 0px 10px;">Site Name : <strong>{{ siteName }}</strong></div>
+          <div class="height43 bb" style="padding: 10px 0px 0px 10px;">Site Address : {{ siteAddress }}</div>
+          <div>
+            <table>
+              <tr>
+                <td class="right31 br height43">Work Order No: <strong>{{ workNo }}</strong></td>
+                <td class="right32 height43">Date:- <strong>{{ workDate }}</strong></td>
+              </tr>
+              <tr>
+                <td class="right41 bt height43">
+                  Invoice No :- <strong>{{ invoiceNo }}</strong>
+                </td>
+                <td class="right42 bt bl height43">Date:-  <strong>{{ invoiceDate }}</strong></td>
+              </tr>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <!-- <p class="font12">Invoice Number: {{ invoiceNo }}</p>
+    <p class="font12">Invoice Date: {{ invoiceDate }}</p>
+    <p class="font12">Customer Name: {{ customerName }}</p>
+    <p class="font12">Customer Address: {{ customerAddress }}</p>
+    <p class="font12">Customer City: {{ customerCity }}</p> -->
+
+    <div class="bt bl br bb" style="height: 375px">
+      <table>
+        <thead>
+          <tr>
+            <th>Sr.no</th>
+            <th>Description of Service</th>
+            <th>SAC No</th>
+            <th>Unit</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each products}}
+          <tr>
+            <td>{{ this.srNo }}</td>
+            <td>{{ this.description }}</td>
+            <td>{{ this.sacNo }}</td>
+            <td>Sq.Ft</td>
+            <td>{{ this.quantity }}</td>
+            <td>{{ this.rate }}</td>
+            <td>{{ this.amount }}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <table class="bottom-table">
+      <tr>
+        <td class="bottom-left bl br bb">
+          <div style="font-size: 14px; line-height: 24px; text-align: left;  vertical-align: top;">
+            Bank Details <br />
+            Bank Name : YES BANK <br />
+            A/C No. 072863400001222 <br />
+            IFSC CODE : YESB0000728 <br />
+            Branch : Wakad, Pune <br />
+          </div>
+        </td>
+        <td class="bottom-right br bb font8">
+          <table>
+            <tr class="">
+              <td>Bill Amount</td>
+              <td class="c2">{{ grandTotal }}</td>
+            </tr>
+            <tr>
+              <td>LESS -Debit</td>
+              <td class="c2">-</td>
+            </tr>
+            <tr>
+              <td>ADD -Debits</td>
+              <td class="c2">-</td>
+            </tr>
+            <tr>
+              <td>TOTAL AMOUNT IN RS.</td>
+              <td class="c2"><strong>{{ grandTotal }}</strong></td>
+            </tr>
+            <tr>
+              <td>CGST 9%</td>
+              <td class="c2"><strong>{{ tax }}</strong></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <table class="bottom-table font12">
+      <tr>
+        <td class="bottom-left bl bb br" style="font-size: 14px; line-height: 24px; text-align: left;  vertical-align: top;">
+          For <br> <strong>SAHYADRI DEVELOPMENT AND CONSTRUCTION LLP</strong>
+        </td>
+        <td class="bottom-right br bb">
+          <table>
+            <tr>
+              <td>SGST 9%</td>
+              <td class="c2"><strong>{{ tax }}</strong></td>
+            </tr>
+            <tr>
+              <td>IGST 9%</td>
+              <td class="c2">-</td>
+            </tr>
+            <tr>
+              <td>TOTAL TAX AMOUNT IN RS.</td>
+              <td class="c2"><strong>{{ tax_amt }}</strong></td>
+            </tr>
+            <tr>
+              <td>TOTAL AMOUNT AFTER TAX</td>
+              <td class="c2"><strong>{{ after_tax }}</strong></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <div class="font14">
+      We declare that this invoice shows the actual price of the goods/services
+      described and that all particulars are true and correct
+    </div>
+  </body>
+</html>
+<!-- Code by - Vedant Mute -->
