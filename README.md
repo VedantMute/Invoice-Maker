@@ -1,9 +1,8 @@
 # Invoice Generation System
 
 This is a Node.js application for generating PDF invoices based on HTML templates. It provides a simple and efficient solution for automating the invoicing process.
-![input data page](https://github.com/Vedant-edu/Invoice-Maker/blob/master/data-input.png)
-![Output pdf](https://github.com/Vedant-edu/Invoice-Maker/blob/master/pdf-output.png)
-
+<img src="https://github.com/Vedant-edu/Invoice-Maker/blob/master/data-input.png" alt="Image of webpage for taking input" width="300" height="200">
+<img src="https://github.com/Vedant-edu/Invoice-Maker/blob/master/pdf-output.png" alt="Image of webpage for taking input" width="300" height="200">
 ## Features
 
 - Generate PDF invoices dynamically from HTML templates.
