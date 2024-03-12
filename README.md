@@ -58,7 +58,7 @@ node app.js
 - The default port for the server is 3000. You can change this by modifying the `port` variable in `app.js`.
 - You can customize the input fields and styling of the invoice template by modifying the HTML in `template.html`.
 
-## Author
+## Credit
 
 - Vedant Mute(https://github.com/VedantMute)
 
